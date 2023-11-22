@@ -22,4 +22,9 @@ public class Vizitka {
    private String email;
    private String telefon;
    private String web;
+
+
+   public String getCelaAdresa() {
+      return ulice + psc + obec;
+   }
 }
