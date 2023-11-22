@@ -1,24 +1,34 @@
 [#ftl]
 [@c.page]
-    <div class="seznam">
-        <a href="/detail">
-            <div class="vizitka">
-                <div class="jmeno">Dita (Přikrylová) Formánková</div>
-                <div class="firma">Czechitas z. s.</div>
-                <div class="udaje">
-                    <div class="adresa">
-                        <div>Václavské náměstí 837/11</div>
-                        <div><span>11000</span> <span>Praha 1</span></div>
-                    </div>
-                    <div class="kontakty">
-                        <div><i class="las la-at"></i> <span>dita@czechitas.cs</span></div>
-                        <div><i class="las la-phone-alt"></i> <span>+420 800123456</span></div>
-                        <div><i class="las la-globe"></i> <span>www.czechitas.cz</span></div>
-                    </div>
-                </div>
-            </div>
-        </a>
 
+    <div class="seznam">
+        [#list seznamOsob]
+            [#items as osoba]
+                <a href="/${osoba.id}">
+                    <div class="vizitka">
+                        <div class="jmeno">${osoba.celeJmeno}</div>
+                        <div class="firma">${osoba.firma}</div
+                        <div class="udaje">
+                            <div class="adresa">
+                                <div>${osoba.ulice}</div>
+                                <div><span>${osoba.psc}</span> <span>${osoba.obec}</span></div>
+                            </div>
+                            <div class="kontakty">
+                                [#if osoba.email??]
+                                    <div><i class="las la-at"></i> <span>${osoba.email}</span></div>
+                                [/#if]
+                                [#if osoba.telefon??]
+                                    <div><i class="las la-phone-alt"></i> <span>${osoba.telefon}</span></div>
+                                [/#if]
+                                [#if osoba.web??]
+                                    <div><i class="las la-globe"></i> <span>${osoba.web}</span></div>
+                                [/#if]
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            [/#items]
+        [/#list]
         <a href="/nova">
             <div class="vizitka vizitka--nova">
                 <svg width="100" height="100">
@@ -28,4 +38,6 @@
             </div>
         </a>
     </div>
+
+
 [/@c.page]
