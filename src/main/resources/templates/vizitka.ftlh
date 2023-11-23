@@ -10,15 +10,12 @@
                     <div><span>${osoba.psc}</span> <span>${osoba.obec}</span></div>
                 </div>
                 <div class="kontakty">
-                    [#if osoba.email??]
-                    <div><i class="las la-at"></i> <span>${osoba.email}</span></div>
-                    [/#if]
-                    [#if osoba.telefon??]
-                    <div><i class="las la-phone-alt"></i> <span>${osoba.telefon}</span></div>
-                    [/#if]
-                    [#if osoba.web??]
-                    <div><i class="las la-globe"></i> <span>${osoba.web}</span></div>
-                    [/#if]
+
+                    <div><i class="las la-at"></i> <span>${osoba.email!}</span></div>
+                    <div><i class="las la-phone-alt"></i> <span>${osoba.telefon!}</span></div>
+
+                    <div><i class="las la-globe"></i> <span>${osoba.web!}</span></div>
+
                 </div>
             </div>
         </div>
