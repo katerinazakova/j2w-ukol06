@@ -23,10 +23,12 @@ public class VizitkaController {
     public VizitkaController(VizitkaRepository vizitkaRepository) {
         this.vizitkaRepository = vizitkaRepository;
     }
+
     @InitBinder
     public void nullStringBinding(WebDataBinder binder) {
         binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
     }
+
     @GetMapping("/")
     public ModelAndView seznam() {
         ModelAndView modelAndView = new ModelAndView("seznam");
@@ -45,18 +47,24 @@ public class VizitkaController {
     }
 
     @GetMapping("/nova")
-    public ModelAndView novaVizitka (){
+    public ModelAndView novaVizitka() {
         ModelAndView modelAndView = new ModelAndView("formular");
-        modelAndView.addObject("osoba",new Vizitka());
+        modelAndView.addObject("osoba", new Vizitka());
         return modelAndView;
     }
 
     @PostMapping("/nova")
-    public Object pridatVizitku(@Valid @ModelAttribute ("osoba") Vizitka vizitka, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public Object pridatVizitku(@Valid @ModelAttribute("osoba") Vizitka vizitka, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "formular";
         }
         vizitkaRepository.save(vizitka);
+        return "redirect:/";
+    }
+
+    @PostMapping("/{id}")
+    public String smazatVizitku (@PathVariable Integer id){
+        vizitkaRepository.deleteById(id);
         return "redirect:/";
     }
 

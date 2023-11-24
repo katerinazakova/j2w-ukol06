@@ -19,6 +19,10 @@
                 </div>
             </div>
         </div>
+        <form method="post">
+            <input type = "hidden" name="id" value="${id}">
+            <button class ="btn btn-light" type="submit">smazat</button>
+        </form>
 
         <div class="mapa">
             <iframe style="border:none" src="https://frame.mapy.cz/?q=${osoba.celaAdresa?url}" width="100%" height="100%" frameborder="0"></iframe>
