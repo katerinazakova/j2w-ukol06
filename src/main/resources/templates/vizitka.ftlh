@@ -20,12 +20,17 @@
             </div>
         </div>
         <form method="post">
-            <input type = "hidden" name="id" value="${id}">
-            <button class ="btn btn-light" type="submit">smazat</button>
+            <input type="hidden" name="id" value="${id}">
+            <button class="btn btn-light" type="submit">smazat</button>
+        </form>
+        <form method="get" action="/${id}/edit">
+            <input type="hidden" name="id" value="${id}">
+            <button class="btn btn-light" type="submit">editovat</button>
         </form>
 
         <div class="mapa">
-            <iframe style="border:none" src="https://frame.mapy.cz/?q=${osoba.celaAdresa?url}" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe style="border:none" src="https://frame.mapy.cz/?q=${osoba.celaAdresa?url}" width="100%"
+                    height="100%" frameborder="0"></iframe>
         </div>
 
         [@c.back /]

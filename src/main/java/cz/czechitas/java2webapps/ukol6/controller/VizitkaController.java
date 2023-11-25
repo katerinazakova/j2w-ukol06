@@ -63,10 +63,27 @@ public class VizitkaController {
     }
 
     @PostMapping("/{id}")
-    public String smazatVizitku (@PathVariable Integer id){
+    public String smazatVizitku(@PathVariable Integer id) {
         vizitkaRepository.deleteById(id);
         return "redirect:/";
     }
 
-}
 
+    @GetMapping("/{id:[0-9]+}/edit")
+    public ModelAndView editaceVizitky(@PathVariable Integer id) {
+        Optional<Vizitka> vizitka = vizitkaRepository.findById(id);
+        ModelAndView modelAndView = new ModelAndView("formular");
+        modelAndView.addObject("osoba", vizitka.get());
+        return modelAndView;
+    }
+
+    @PostMapping("/{id:[0-9]+}/edit")
+    public Object ulozitZmenuVizitky(@Valid @ModelAttribute("osoba") Vizitka vizitka, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "formular";
+        }
+        vizitkaRepository.save(vizitka);
+        return "redirect:/{id}";
+    }
+
+}
