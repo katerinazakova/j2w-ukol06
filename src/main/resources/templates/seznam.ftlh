@@ -1,6 +1,5 @@
 [#ftl]
 [@c.page]
-
     <div class="seznam">
         [#list seznamOsob]
             [#items as osoba]
@@ -14,9 +13,9 @@
                                 <div><span>${osoba.psc}</span> <span>${osoba.obec}</span></div>
                             </div>
                             <div class="kontakty">
-                                    <div><i class="las la-at"></i> <span>${osoba.email!}</span></div>
-                                    <div><i class="las la-phone-alt"></i> <span>${osoba.telefon!}</span></div>
-                                    <div><i class="las la-globe"></i> <span>${osoba.web!}</span></div>
+                                <div><i class="las la-at"></i> <span>${osoba.email!}</span></div>
+                                <div><i class="las la-phone-alt"></i> <span>${osoba.telefon!}</span></div>
+                                <div><i class="las la-globe"></i> <span>${osoba.web!}</span></div>
                             </div>
                         </div>
                     </div>
@@ -32,6 +31,4 @@
             </div>
         </a>
     </div>
-
-
 [/@c.page]

@@ -31,9 +31,7 @@ public class Vizitka {
     @NotBlank
     @Email
     private String email;
-    @NotBlank
     private String telefon;
-    @NotBlank
     private String web;
 
 

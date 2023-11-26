@@ -14,7 +14,6 @@
                 <button type="submit">Odeslat</button>
             </div>
         [/@form.form]
-
         [@c.back /]
     </div>
 [/@c.page]

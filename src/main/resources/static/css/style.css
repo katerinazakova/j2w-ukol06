@@ -29,9 +29,10 @@ a {
 }
 
 .vizitka {
+
     width: 36em;
     height: 16em;
-    border: 1px solid gray;
+    border: 1px solid grey;
     background-color: white;
     margin: 1em;
     padding: 1.5em;
@@ -106,7 +107,7 @@ form.vizitka {
 .mapa {
     width: 36em;
     height: 36em;
-    border: 1px solid gray;
+    border: 1px solid grey;
     margin: 1em;
     box-shadow: 5px 5px 10px black;
 }
