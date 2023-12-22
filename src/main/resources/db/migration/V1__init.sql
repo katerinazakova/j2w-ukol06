@@ -18,3 +18,5 @@ VALUES ('Dita (Přikrylová) Formánková', 'Czechitas z. s.', 'Václavské nám
        ('Barbora Bühnová', 'Czechitas z. s.', 'Václavské náměstí 837/11', 'Praha 1', '11000', NULL, '+420 800123456', 'www.czechitas.cz'),
        ('Monika Ptáčníková', 'Czechitas z. s.', 'Václavské náměstí 837/11', 'Praha 1', '11000', 'monika@czechitas.cs', '+420 800123456', 'www.czechitas.cz'),
        ('Mirka Zatloukalová', 'Czechitas z. s.', 'Václavské náměstí 837/11', 'Praha 1', '11000', 'mirka@czechitas.cs', NULL, 'www.czechitas.cz');
+
+

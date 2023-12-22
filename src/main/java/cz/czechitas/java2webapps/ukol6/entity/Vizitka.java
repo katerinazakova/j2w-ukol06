@@ -28,7 +28,6 @@ public class Vizitka {
     @NotBlank
     @Pattern(regexp = "\\d{5}")
     private String psc;
-    @NotBlank
     @Email
     private String email;
     private String telefon;
@@ -36,6 +35,6 @@ public class Vizitka {
 
 
     public String getCelaAdresa() {
-        return ulice + psc + obec;
+        return ulice + " " + psc + " "+ obec;
     }
 }

@@ -4,14 +4,11 @@ import cz.czechitas.java2webapps.ukol6.entity.Vizitka;
 import cz.czechitas.java2webapps.ukol6.repository.VizitkaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
@@ -54,7 +51,7 @@ public class VizitkaController {
     }
 
     @PostMapping("/nova")
-    public Object pridatVizitku(@Valid @ModelAttribute("osoba") Vizitka vizitka, BindingResult bindingResult) {
+    public String pridatVizitku(@Valid @ModelAttribute("osoba") Vizitka vizitka, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "formular";
         }
@@ -70,8 +67,11 @@ public class VizitkaController {
 
 
     @GetMapping("/{id:[0-9]+}/edit")
-    public ModelAndView editaceVizitky(@PathVariable Integer id) {
+    public Object editaceVizitky(@PathVariable Integer id) {
         Optional<Vizitka> vizitka = vizitkaRepository.findById(id);
+        if (vizitka.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         ModelAndView modelAndView = new ModelAndView("formular");
         modelAndView.addObject("osoba", vizitka.get());
         return modelAndView;
